@@ -1,0 +1,52 @@
+features
+    youtube templates
+    bg remove
+    text
+        text templates
+        text effects
+    divide image in layers
+        subject
+            shadow
+            stroke
+        image effects
+            texture
+            blur
+            fabric filters
+        bg
+            texture
+            blur
+            fabric filters
+            get cool backgrounds
+            generate backgrounds
+            consists of
+                image
+                bg fill, bg gradient(bgcolor, opacity)
+                texture 
+                pattern
+                overlay
+
+    Grid alignment (optional for MVP)
+
+    Add image layers
+    Add text layers
+    Reorder layers (bring forward/send backward)
+    Show/hide layers
+    Delete layers
+
+
+    brand kits
+
+    CTR-focused thumbnail templates
+    High-contrast color suggestions
+    Thumbnail preview at actual YouTube size
+    Mobile preview mode
+    Heatmap/attention preview (later)
+    AI headline text suggestions
+    Face emphasis effects
+    Text readability checker
+
+flow -> upload subject -> remove bg -> select template -> apply image effects automatically -> edits -> download
+    upload -> choose template -> edit donwload
+
+https://www.youtube.com/watch?v=WzDmoTydaEk
+        

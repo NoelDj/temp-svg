@@ -1,0 +1,84 @@
+now
+
+features
+
+
+    editor
+        delete project tutorial
+
+        input name change
+            details page
+            dashboard page
+
+            save -> login -> save
+
+
+
+
+svgcolor launch
+    landing page
+        header
+        footer
+        images for how to section
+    page to recreate in next js
+        svg-blog
+        5 blog pages
+        
+
+    migrate seo
+    
+
+sidebar sections to postpone
+    text
+    ai
+    brand
+    image
+    design
+    svg
+
+fix bugs and ux
+
+complete tutorial
+    deploy
+
+
+
+
+later:
+
+    complete tutorial
+        ai
+        remove bg
+        template
+        stripe
+
+    color palette
+        monochromatic
+        ai generated palettes
+        api
+            created
+
+    color palette (brands)
+        backend
+            create
+            read
+            update delete
+        fronted
+            render
+    
+    svg api library
+
+pages
+    Privacy Policy
+    Refund and cancellation Policy
+    Promotions terms and conditions
+    contact
+    edit-svg-images
+
+
+
+    
+much later
+    create later
+            svg viewer
+            svg to webp
