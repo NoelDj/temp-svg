@@ -7,11 +7,17 @@ import { Loader, TriangleAlert } from "lucide-react";
 import { use } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { Metadata } from 'next/types';
 
 interface EditorProjectIdPageProps {
     params: Promise<{
         projectId: string
     }>
+}
+
+export const metadata: Metadata = {
+    title: 'SVGColor Project | Manage and edit custom designs easily',
+    description: 'Edit your designs easily',
 }
 
 export default function page({ params } : EditorProjectIdPageProps) {

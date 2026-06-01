@@ -5,15 +5,41 @@ import Header from "@/features/landing-page/components/Header";
 import { cn } from "@/lib/utils";
 
 
-//turn on for production
-export const dynamicParams = true
+import type { Metadata, ResolvingMetadata } from 'next'
+ 
+type Props = {
+    params: Promise<{ slug: string }>
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+ 
+export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+    const slug = (await params).slug
+ 
+    const post = blogList.find(({ slug: postSlug }) => postSlug === slug)
 
+    if (!post) {
+        return {
+            title: "",
+            description: "",
+        }
+    }
+ 
+    return {
+        title: post.title,
+        description: post.excerpt,
+    } as Metadata
+}
+
+
+
+//turn on for production
+export const dynamicParams = false
 
 
 export async function generateStaticParams(): Promise<{
     slug: string
 }[]> {
-    return blogList
+    return blogList.map(({slug}) => ({slug}))
 }
 
 export default async function Page({

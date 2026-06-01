@@ -6,8 +6,6 @@ features
     editor
         now: save -> modal -> login page
             later: save -> modal -> signup modal -> on submit validate using client side js -> if true save project -> set id -> rerender
-
-    migrate seo
     
 
 sidebar sections to postpone

@@ -1,11 +1,14 @@
 import React from 'react'
 import blogList from '../constants'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'SVG blog | Posts about Vector based graphics | SVG Color',
+    description: 'Tutorials, tips and ressources about SVGs. Get inspired for your next project.',
+}
 
 function BlogPage() {
-
-
-
     return (
         <main className="mx-auto mt-20 w-full max-w-[1200px]">
             <div className='border-b border-b-slate-200 pb-4 mb-16'>
