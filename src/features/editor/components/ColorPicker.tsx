@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { rgbaObjectToString } from "@/lib/utils";
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { RGBColor } from 'react-color';
 
 const ChromePicker = dynamic(
@@ -34,16 +34,17 @@ function ColorPicker({
         setColorValue(rgbaValue)
     }
 
-    return (
-        <div className="w-full flex flex-col gap-y-8">
-            <ChromePicker
-                color={colorValue}
-                onChange={({ rgb }) => handleChange(rgb)}
-                onChangeComplete={({ rgb }) => handleChangeComplete(rgb)}
-                className="border-slate-200 border rounded-2xl"
-            />
-        </div>
-    )
+
+  return (
+    <div className="w-full flex flex-col gap-y-8">
+        <ChromePicker
+            color={colorValue}
+            onChange={({ rgb }) => handleChange(rgb)}
+            onChangeComplete={({ rgb }) => handleChangeComplete(rgb)}
+            className="border-slate-200 border rounded-2xl"
+        />
+    </div>
+  )
 }
 
 export default ColorPicker

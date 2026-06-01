@@ -29,18 +29,21 @@ const timeLineEvents: TimelineEvent[] = [
 
 function TimelineSection() {
     return (
-        <section className='mt-20'>
-            <div className='mb-10'>
-                <p className='text-md mb-1'>How it works</p>
-                <h2 className='text-4xl font-medium mb-2'>Change svg colors in few steps</h2>
-                <p className='max-w-[500px] text-gray-700'>A simple, guided process so you can go from zero to live — no technical expertise needed.</p>
-            </div>
-            <div>
-                {
-                    timeLineEvents.map((item) => (
-                        <TimelineEvent key={item.step} item={item} />
-                    ) )
-                }
+        <section className='mt-20 mb-40'>
+            <div className="border shadow-md px-5 py-10 rounded-2xl">
+                <div className="w-full flex-col justify-start items-center lg:gap-12 gap-10 inline-flex">
+                    <div className="w-full flex-col justify-start items-center gap-3 flex">
+                        <h2 className="w-full text-center text-gray-900 text-4xl font-bold font-manrope leading-normal">How it works</h2>
+                        <p className="w-full text-center text-gray-500 text-base font-normal leading-relaxed">SVGColor lets you upload any svg to make changes to your file.</p>
+                            
+                    </div>
+                    <div className="w-full justify-start items-center gap-4 flex md:flex-row flex-col">
+                        {
+                            timeLineEvents.map(item => <TimelineEvent key={item.step} item={item} />)
+                        } 
+                    </div>
+                    
+                </div>
             </div>
         </section>
     )
@@ -56,22 +59,23 @@ type TimelineEventProps = {
 function TimelineEvent({
     item
 }: TimelineEventProps) {
-
     const{title, step, description} = item
 
     return (
-        <div className='flex gap-x-20'>
-            <div className='flex flex-col items-center'>
-                <div className='size-16 ring-2 ring-primary rounded-full flex items-center justify-center'>
-                    <span className='text-lg'>{step}</span>
+        <>
+            <div className="grow shrink basis-0 flex-col justify-start items-center gap-2.5 inline-flex">
+                <div className="self-stretch flex-col justify-start items-center gap-0.5 flex">
+                    <div className="self-stretch text-center text-indigo-600 text-4xl font-extrabold font-manrope leading-normal">{step}</div>
+                    <h3 className="self-stretch text-center text-gray-900 text-xl font-semibold leading-8">{title}</h3>
                 </div>
-                {step !== '04' && <div className='flex-1 border border-slate-200 border-dashed mt-2 w-[1px]'></div>}
+                <p className="self-stretch text-center text-gray-400 text-base font-normal leading-relaxed">{description}</p>
             </div>
-            <div className='w-1/2 mb-20'>
-                <h3 className='text-3xl font-medium mb-2'>{title}</h3>
-                <p className='text-gray-700 mb-4'>{description}</p>
-                <div className='h-[460px] bg-violet-200 border border-violet-500 rounded-2xl'></div>
-            </div>
-        </div>
+            {
+                step !== '04' && 
+                    <svg className="md:flex hidden" xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none">
+                        <path d="M5.50159 6L11.5018 12.0002L5.49805 18.004M12.5016 6L18.5018 12.0002L12.498 18.004" stroke="#4F46E5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg> 
+            }
+        </>
     )
 }

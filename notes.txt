@@ -10,10 +10,8 @@ features
 
 svgcolor launch
     landing page
-        images for how to section
         logo as image
         features section
-        how to section    
 
     migrate seo
     
@@ -125,3 +123,7 @@ pricing table
         limit file size,
         
     
+
+svgcolor launch
+    landing page
+        images for how to section
