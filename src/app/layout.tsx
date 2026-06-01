@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
@@ -20,9 +20,47 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 })
 
+export const viewport: Viewport = {
+      themeColor: "#ffffff",
+}
+
 export const metadata: Metadata = {
     title: "SVGcolor",
-    description: "Change svg color online",
+    description: "SVGColor page",
+
+    robots: {
+        index: true,
+        follow: true,
+    },
+
+    formatDetection: {
+        telephone: false,
+    },
+
+    manifest: "/site.webmanifest",
+
+    icons: {
+        icon: [
+            { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+            { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        ],
+        apple: [
+            { url: "/apple-touch-icon.png", sizes: "180x180" },
+        ],
+        other: [
+            {
+                rel: "mask-icon",
+                url: "/safari-pinned-tab.svg",
+                color: "#5bbad5",
+            },
+        ],
+    },
+
+    other: {
+        "msapplication-TileColor": "#da532c",
+        "http-equiv": "X-UA-Compatible",
+        content: "IE=edge",
+    },
 }
 
 export default async function RootLayout({

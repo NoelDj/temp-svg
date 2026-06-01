@@ -25,18 +25,19 @@ export default function Header() {
             <div className="mx-auto flex items-center justify-between rounded-xl py-4">
                 
                 <Link href="/">
-                    <div className="flex items-center gap-2">
+                    <img src="/images/svgcolor-logo.png" alt="SVGColor logo" />
+                    {/* <div className="flex items-center gap-2">
                         <img src="logo.svg" alt="logo" width={35} />
                         <span className="font-semibold tracking-tight text-gray-900">SVGColor</span>
-                    </div>
+                    </div> */}
                     
                 </Link>
                 
-                <nav className="flex items-center gap-12 text-sm text-gray-800">
-                {links.map(({ link, name }) =>
-                    <HeaderLink key={name} link={link} name={name} />
+                {/* <nav className="flex items-center gap-12 text-sm text-gray-800">
+                    {links.map(({ link, name }) =>
+                        <HeaderLink key={name} link={link} name={name} />
                     )}
-                </nav>
+                </nav> */}
 
                 <div className="flex gap-4">
                     {

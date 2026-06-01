@@ -7,12 +7,6 @@ features
         now: save -> modal -> login page
             later: save -> modal -> signup modal -> on submit validate using client side js -> if true save project -> set id -> rerender
 
-
-svgcolor launch
-    landing page
-        logo as image
-        features section
-
     migrate seo
     
 
@@ -24,14 +18,18 @@ sidebar sections to postpone
     design
     svg
 
-fix bugs and ux
 
 complete tutorial
     deploy
 
 
+testing
+    check edge cases
+        make new algo based on those cases
+    fix bugs and ux
 
 later:
+
     complete tutorial
         ai
         remove bg
@@ -60,19 +58,25 @@ pages
     Promotions terms and conditions
     contact
     edit-svg-images
+    landing page
+        how it works
+        why use svgcolor
+        features section
+        features grid 2
+        stats
+        testimonials
+        faq
+        pricing
+        cta
+        what is svg
+        how to use svg
 
-
-bug: on project name change in dashboard ui renders slowlu
-
-
+bug: on project name change in dashboard ui renders slowly
     
 much later
     create later
             svg viewer
             svg to webp
-
-
-
 
 
 keywords
