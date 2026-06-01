@@ -51,8 +51,10 @@ export default function Editor({ initialData, initialCanvasImageFile, initialToo
         width = 1920,
         json = '',
         id = '',
+        name = 'Untitled project',
         ...rest
     } = initialData ?? {}
+
 
     const { mutate } = UseUpdateProject(id)
 
@@ -66,7 +68,7 @@ export default function Editor({ initialData, initialCanvasImageFile, initialToo
             }) => {
             mutate(values);
         },
-        2500
+        1500
     ), [mutate])
     
     const saveCallback = isAuthenticated ? debouncedSave : undefined
@@ -133,6 +135,7 @@ export default function Editor({ initialData, initialCanvasImageFile, initialToo
             <div className='bg-white flex-1 rounded-2xl flex flex-col shadow-md'>
                 <Navbar
                     id={id}
+                    name={name}
                     isAuthenticated={isAuthenticated}
                     activeTool={activeTool}
                     onChangeActiveTool={onChangeActiveTool}

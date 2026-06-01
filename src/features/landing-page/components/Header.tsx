@@ -2,7 +2,7 @@
 
 import { auth } from "@/auth";
 import { Button } from "@/components/ui/button";
-import { Loader, LogInIcon, SquarePenIcon, User2Icon } from "lucide-react";
+import { Crown, Loader, LogInIcon, SquarePenIcon, User2Icon } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { RxDashboard } from "react-icons/rx";
@@ -12,10 +12,9 @@ export default function Header() {
     const session = useSession()
 
     const links = [
-        {link: "/", name: "Pricing"},
-        {link: "/", name: "Premium"},
-        {link: "/", name: "About"},
-        {link: "/", name: "Contact"}
+        {link: "/#pricing", name: "Pricing"},
+        {link: "/#faq", name: "FAQ"},
+        {link: "/premium", name: "Premium"},
     ]
 
     const isLoading = session.status === "loading"
@@ -30,14 +29,13 @@ export default function Header() {
                         <img src="logo.svg" alt="logo" width={35} />
                         <span className="font-semibold tracking-tight text-gray-900">SVGColor</span>
                     </div>
+                    
                 </Link>
                 
                 <nav className="flex items-center gap-12 text-sm text-gray-800">
-                    {
-                        links.map(({link, name}) => (
-                            <a href="#" className="cursor-pointer hover:text-primary" key={name}>{name}</a>
-                        ))
-                    }
+                {links.map(({ link, name }) =>
+                    <HeaderLink key={name} link={link} name={name} />
+                    )}
                 </nav>
 
                 <div className="flex gap-4">
@@ -69,5 +67,11 @@ export default function Header() {
                 </div>
             </div>
         </header>
+    )
+}
+
+function HeaderLink({ link, name }: { link: string, name: string }) {
+    return (
+        <Link href={link} className="hover:text-gray-900 transition flex items-center gap-2">{name}{name === 'Premium' && <Crown className="text-yellow-700" size={20} />} </Link>
     )
 }

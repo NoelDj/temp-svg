@@ -5,21 +5,17 @@ features
 
     editor
         delete project tutorial
-
-        input name change
-            details page
-            dashboard page
-
-            save -> login -> save
-
-
+        now: save -> modal -> login page
+            later: save -> modal -> signup modal -> on submit validate using client side js -> if true save project -> set id -> rerender
+        update svg color state is updated
 
 
 svgcolor launch
     landing page
-        header
-        footer
         images for how to section
+        logo as image
+        features section
+        how to section
     page to recreate in next js
         svg-blog
         5 blog pages
@@ -43,9 +39,7 @@ complete tutorial
 
 
 
-
 later:
-
     complete tutorial
         ai
         remove bg
@@ -76,9 +70,64 @@ pages
     edit-svg-images
 
 
+bug: on project name change in dashboard ui renders slowlu
+
 
     
 much later
     create later
             svg viewer
             svg to webp
+
+
+
+
+
+keywords
+    	
+    svg icon generator
+
+    svg path editor
+    svg path visualizer
+    edit svg path
+    car svg
+    samurai svg
+
+
+
+
+
+
+
+
+pricing table
+    free
+        edit svgs
+        change svg color
+        save 1 project
+        edit text
+        upload unlimited files
+        add images
+        image filters
+        export different formats
+    pro
+
+        100+ vector illustrations
+        100+ premium icons
+        save unlimited projects
+        create custom color palettes
+        remove background from image
+        save fonts
+        change size
+        gen ai
+        export to 2k,4k, etc,
+        compress,
+        100+ Premium Icons,
+        Define Fonts,
+        remove bg,
+        gen ai,
+        export,
+        size,
+        limit file size,
+        
+    

@@ -15,8 +15,8 @@ import BlogSection from "@/features/landing-page/components/BlogSection";
 import FeaturesSection from "@/features/landing-page/components/FeaturesSection";
 import Header from "@/features/landing-page/components/Header";
 import TimelineSection from "@/features/landing-page/components/TimelineSection";
-import Image from "next/image";
-import Link from "next/link";
+import PricingSection from "@/features/landing-page/components/PricingSection";
+
 
 export default async function Home() {
 
@@ -37,6 +37,7 @@ export default async function Home() {
                 <TimelineSection />
                 {/* <BlogSection /> */}
                 <FeaturesSection />
+                <PricingSection />
 
             </div>
 

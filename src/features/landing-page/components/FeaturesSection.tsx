@@ -1,11 +1,21 @@
 import { MessageCircle, Zap, Users, Puzzle, Rocket, Layers } from "lucide-react";
 
+type CardItem = {
+    title: string;
+    description: string;
+    cta: string;
+    icon: React.ComponentType<any>;
+    bg: string;
+    border: string;
+    img: string;
+}
+    
+
 export default function FeaturesSection() {
-    const cards = [
+    const cards: CardItem[] = [
         {
-            title: "Save Hours with AI-Powered Automation",
-            description:
-                "Reduce manual work with smart automation. Transform repetitive tasks into seamless workflows, freeing up time for what matters.",
+            title: "Save your projects",
+            description: "Reduce manual work with smart automation. Transform repetitive tasks into seamless workflows, freeing up time for what matters.",
             cta: "Get Started",
             icon: Zap,
             bg: "bg-orange-50",
@@ -13,9 +23,8 @@ export default function FeaturesSection() {
             img: "plan-list-svgrepo-com.svg"
         },
         {
-            title: "Work Seamlessly with Your Team",
-            description:
-                "Collaborate in real-time with built-in tools for messaging, feedback, and shared project tracking.",
+            title: "Update size, colors, shapes and more",
+            description: "Collaborate in real-time with built-in tools for messaging, feedback, and shared project tracking.",
             cta: "Try it Now",
             icon: Users,
             bg: "bg-blue-50",
@@ -68,13 +77,9 @@ export default function FeaturesSection() {
         <section className="">
 
             <div className={`w-full p-6 rounded-2xl border bg-slate-100 border-slate-200 flex flex-col justify-between`}>
-                <div className="my-10 m-4 flex">
-                    <h3 className="text-7xl font-semibold mb-3 text-gray-900">
-                        Easy to solution, loaded with powerful feature.
-                    </h3>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        We love connecting face-to-face with our customers and other.
-                    </p>
+                <div className="my-10 m-4 flex gap-10">
+                    <h3 className="text-7xl font-semibold mb-3 text-gray-900 flex-2">Customize icons and logos using the SVG Color Changer</h3>
+                    <p className="text-lg text-gray-600 leading-relaxed flex-1 text-right">SVGColor provdes a feature rich svg design editor to create, edit and customize SVGs. Organize your svgs in projects and improve your workflow.</p>
                 </div>
 
                 <div className="flex flex-wrap gap-6">
@@ -85,8 +90,6 @@ export default function FeaturesSection() {
                         >
                             <div>
                                 <img src={card.img} className="w-1/2" alt="" />
-
-                                
                             </div>
 
                             <div className="text-sm font-medium text-gray-900 self-start">

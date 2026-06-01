@@ -25,12 +25,16 @@ import { Separator } from '@/components/ui/separator'
 import { Hint } from '@/components/Hint'
 import { ActiveTool, Editor } from '../types'
 import { UserButton } from '@/features/auth/components/UserButton'
-import { useMutationState } from '@tanstack/react-query'
+import { TimeoutCallback, useMutationState } from '@tanstack/react-query'
 import Link from 'next/link'
 import { Input } from '@/components/ui/input'
+import { UseUpdateProject } from '@/features/dashboard/api/UseUpdateProject'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import debounce from 'lodash.debounce'
 
 interface NavbarProps {
     id?: string
+    name: string
     editor: Editor | undefined
     activeTool: ActiveTool
     onChangeActiveTool: (tool: ActiveTool) => void
@@ -41,10 +45,11 @@ export default function Navbar({
     editor,
     activeTool,
     onChangeActiveTool,
-    isAuthenticated
+    isAuthenticated,
+    name
 }: NavbarProps) {
     
-     const { openFilePicker } = useFilePicker({
+    const { openFilePicker } = useFilePicker({
         accept: ".json",
             onFilesSuccessfullySelected: ({ plainFiles }: any) => {
                 if (plainFiles && plainFiles.length > 0) {
@@ -118,8 +123,14 @@ export default function Navbar({
                         <Redo2 className="size-4" />
                     </Button>
                 </Hint>
-                <Separator orientation="vertical" className="mx-2" />
-                {isAuthenticated && id ? <SavedStatusIndicator id={id} /> : <LoginButton />}
+                {(isAuthenticated && id) ? (
+                    <>
+                        <Separator orientation="vertical" className="mx-4" />
+                        <ProjectInputName id={id} name={name}/> 
+                        <Separator orientation="vertical" className="mx-4" />
+                        <SavedStatusIndicator id={id} />
+                    </>
+                ) : <LoginButton />}
                 <div className="ml-auto flex items-center gap-x-4">
                     <DropdownMenu modal={false}>
                         <DropdownMenuTrigger asChild>
@@ -194,6 +205,43 @@ function LoginButton () {
     )
 }
 {/* <Link href="/sign-in"></Link> */}
+
+function ProjectInputName({id, name: initialName }: { id: string, name: string}) {
+    const { mutate } = UseUpdateProject(id)
+
+    const [name, setName] = useState(initialName)
+
+    useEffect(() => {
+        setName(initialName)
+    }, [initialName])
+
+    const debouncedSave = useMemo(
+        () =>
+        debounce((value: string) => {
+            mutate({ name: value })
+        }, 500),
+        [mutate]
+    )
+
+    useEffect(() => {
+        return () => {
+            debouncedSave.cancel()
+        }
+    }, [debouncedSave])
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const value = e.currentTarget.value
+
+        setName(value)
+        debouncedSave(value)
+    }
+
+    return (
+        <div className="w-62.5">
+            <Input onChange={handleChange} value={name} />
+        </div>
+    )
+}
 
 function SavedStatusIndicator ({id}: {id: string}) {
 
