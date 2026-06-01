@@ -4,10 +4,8 @@ features
 
 
     editor
-        delete project tutorial
         now: save -> modal -> login page
             later: save -> modal -> signup modal -> on submit validate using client side js -> if true save project -> set id -> rerender
-        update svg color state is updated
 
 
 svgcolor launch

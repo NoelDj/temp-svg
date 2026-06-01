@@ -25,6 +25,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Field, FieldGroup } from "@/components/ui/field"
 import { UseUpdateProject } from "../api/UseUpdateProject"
+import { useDeleteProject } from "../api/UseDeleteproject"
+import { useConfirm } from "@/hooks/UseConfirm"
 
 export const ProjectsSection = () => {
     const router = useRouter()
@@ -32,11 +34,24 @@ export const ProjectsSection = () => {
     const duplicateMutation = UseDuplicateProject()
     const [projectId, setProjectId] = useState<string>("")
     const [projectName, setProjectName] = useState<string>("")
-    const { mutate } = UseUpdateProject(projectId)
+    const updateMutation = UseUpdateProject(projectId)
+    const removeMutation = useDeleteProject();
     
+    const [ConfirmDialog, confirm] = useConfirm(
+        "Are you sure?",
+        "You are about to delete this project.",
+    )
 
     const onCopy = (id: string) => {
         duplicateMutation.mutate({ id })
+    }
+
+    const onDelete = async (id: string) => {
+        const ok = await confirm();
+
+        if (ok) {
+            removeMutation.mutate({ id });
+        }
     }
 
     const {
@@ -47,17 +62,16 @@ export const ProjectsSection = () => {
         hasNextPage
     } = UseGetProjects()
 
-    
-
     function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault();
         if (!projectName) return
-        mutate({
-          name: projectName,
+        updateMutation.mutate({
+            name: projectName,
         })
     }
 
-    if (status === "pending") {
+
+    if (status === "pending" || removeMutation.isPending || updateMutation.isPending || duplicateMutation.isPending) {
         return (
             <div className="space-y-4">
                 <h3 className="font-semibold text-lg">
@@ -104,6 +118,7 @@ export const ProjectsSection = () => {
 
     return (
         <div className="space-y-4">
+            <ConfirmDialog />
             <h3 className="font-semibold text-lg">
                 Recent project
             </h3>
@@ -178,8 +193,8 @@ export const ProjectsSection = () => {
                                                 </DropdownMenuItem>
                                                 <DropdownMenuItem
                                                     className="h-10 cursor-pointer"
-                                                    disabled={false}
-                                                    onClick={() => {}}
+                                                    disabled={removeMutation.isPending}
+                                                    onClick={() => onDelete(project.id)}
                                                 >
                                                     <Trash className="size-4 mr-2" />
                                                     Delete
