@@ -13,11 +13,7 @@ svgcolor launch
         images for how to section
         logo as image
         features section
-        how to section
-    page to recreate in next js
-        svg-blog
-        5 blog pages
-        
+        how to section    
 
     migrate seo
     

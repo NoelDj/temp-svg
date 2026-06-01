@@ -14,13 +14,14 @@ function BlogPage() {
             </div>
             <div className="grid grid-cols-3 gap-x-4 gap-y-10">
                 {
-                    blogList.map(({slug, img, title}) => (
+                    blogList.map(({slug, img, title, excerpt}) => (
                         <div key={slug} className="border rounded-xl hover:-translate-y-2 transition-translate transition duration-300 ease-in-out ">
                             <div className="rounded-t-2xl overflow-hidden">
-                                <Link href={`/${slug}`} className="text-xl font-medium"><img src={img} className='w-full' alt="" /></Link>
+                                <Link href={`/${slug}`} className="text-xl font-medium"><img src={"images/blog-post-images/" + img} className='w-full' alt="" /></Link>
                             </div>
                             <div className="p-2">
-                                <Link href={`/${slug}`} className="text-xl font-medium">{title}</Link>
+                                <Link href={`/${slug}`} className="text-xl font-medium mb-3">{title}</Link>
+                                <p className='text-gray-700 text-sm'>{excerpt}</p>
                             </div>
                         </div>
                     ))

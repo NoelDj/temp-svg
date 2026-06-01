@@ -28,17 +28,19 @@ export default async function Page({
 
     const { title, component: content, img } = currentPost
 
-    const otherPosts = blogList.filter((blog) => blog.slug !== slug)
+    const otherPosts = blogList.filter((blog) => blog.slug !== slug && blog.slug !== 'updates-and-changes')
 
     return (
         <div className="mx-auto mt-20 w-full max-w-[900px]">
             <main className={cn(styles.blogContent, 'mb-20')}>
-                <div className="mb-2 rounded-3xl overflow-hidden">
-                    <img src={img} alt="" width="100%" />
-                </div>
 
                 <article>
-                    <h1>{title}</h1>
+                    <div className="border-b border-slate-300 mt-2 p-0 mb-8">
+                        <div className="rounded-3xl overflow-hidden">
+                            <img src={'/images/blog-post-images/' + img} alt={title} width="100%"/>
+                        </div>
+                        <h1 className="text-4xl mt-3 mb-5 font-medium">{title}</h1>
+                    </div>
                     {content}
                 </article>
 
@@ -57,7 +59,7 @@ export default async function Page({
                         otherPosts.map(({slug, img, title}) => (
                             <div key={slug} className="border rounded-xl">
                                 <div className="rounded-t-2xl overflow-hidden">
-                                    <Link href={`/${slug}`} className="text-xl font-medium"><img src={img} alt="" /></Link>
+                                    <Link href={`/${slug}`} className="text-xl font-medium"><img src={'/images/blog-post-images/' + img} alt={title} /></Link>
                                 </div>
                                 <div className="p-2">
                                     <Link href={`/${slug}`} className="text-xl font-medium">{title}</Link>

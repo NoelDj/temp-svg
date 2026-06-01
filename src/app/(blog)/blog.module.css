@@ -1,11 +1,17 @@
-.blogContent h1 {
-  font-size: 40px;
-  margin-bottom: 25px;
-}
 
-.blogContent h3 {
+.blogContent h3, .blogContent h4 {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 8px;
   margin-top: 30px;
+}
+
+.blogContent ul {
+  padding-left: 20px;
+  list-style-type: circle;
+  margin-bottom: 8px;
+}
+
+.blogContent p {
+  margin-bottom: 6px;
 }
